@@ -4,8 +4,8 @@ nekoshell: main.o nekoshell.o
 main.o: main.c
 	gcc -c main.c
 
-nekoshell.o: nekoshell.c nekoshell.h
-	gcc -c nekoshell.c
+nekoshell.o: ./lib/sources/nekoshell.c ./lib/headers/nekoshell.h
+	gcc -c ./lib/sources/nekoshell.c
 
 clean:
 	rm *.out

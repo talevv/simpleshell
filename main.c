@@ -1,4 +1,4 @@
-#include "nekoshell.h"
+#include "./lib/headers/nekoshell.h"
 #include <stdio.h>
 
 int main(){
