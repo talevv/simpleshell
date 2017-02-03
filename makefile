@@ -9,6 +9,3 @@ main.o: main.c
 
 nekoshell.o: $(sources)/nekoshell.c $(headers)/nekoshell.h
 	gcc -c $(sources)/nekoshell.c
-
-clean:
-	rm *.out

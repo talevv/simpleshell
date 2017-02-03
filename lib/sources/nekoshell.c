@@ -79,7 +79,7 @@ void listenCommand(){
 			}
 			args[i] = 0;
 
-			int e = execvp(fullPath, args);
+			execvp(fullPath, args);
 			perror("error");
 			exit(1);
 
