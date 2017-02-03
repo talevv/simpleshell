@@ -15,15 +15,12 @@ void writePrompt(){
 	printf("nekoshell:[%s]>> ", path);
 }
 
-int changeDirectory(char *path){
-	if(path == NULL) return 1;
+void changeDirectory(char *path){
+	if(path == NULL) return;
 
 	int cdStatus = chdir(path);
 	if(cdStatus == -1){
 		perror("cd error");
-		return 1;
-	} else{
-		return 0;
 	}
 	
 }
@@ -35,7 +32,7 @@ void clearCommand(char *command){
 	}
 }
 
-int listenCommand(){
+void listenCommand(){
 	writePrompt();
 
 	char *command = NULL;
@@ -52,9 +49,10 @@ int listenCommand(){
 
 			commandArguments = strtok (NULL, " ");
 			
-			int status = changeDirectory(commandArguments);
+			changeDirectory(commandArguments);
 			
-			return status;
+			return;
+			
 		}
 
 		if(strcmp(commandArguments, "exit") == 0){
@@ -63,10 +61,9 @@ int listenCommand(){
 
 		// if its not shell command then its a program
 
-		char *appName = commandArguments;
-		// create path to program
-		char *pathToProgram = "/bin/";
 		char fullPath[20];
+		char *appName = commandArguments;
+		char *pathToProgram = "/bin/";
 		strcpy(fullPath, pathToProgram);
 		strcat(fullPath, commandArguments);
 		

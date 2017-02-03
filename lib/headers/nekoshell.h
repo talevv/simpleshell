@@ -1,7 +1,7 @@
 
 void writePrompt();
 
-int changeDirectory(char *path);
+void changeDirectory(char *path);
 
 void findCommands(char *commandString, char *arguments[]);
 
